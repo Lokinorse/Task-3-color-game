@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Task3</title>
+</head>
+<body>
+    <style>
+        #app{
+            margin:2em;
+        }
+        .cell{
+            width:40px;
+            height:40px;
+
+            border:1px solid orangered;
+        }
+        #boardWrapper{
+            flex-wrap: wrap;
+            display:flex;
+            width:160px;
+            margin-bottom: 1em;
+        }
+    </style>
+    <div id="app">
+        <div id = 'boardWrapper'>
+            <div v-for='cell in board'>
+                <div class='cell'></div>
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary"
+        v-on:click="stopWatch">Старт</button><br>
+        <span>{{stopWatchData}}</span>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="index.js"></script>
+</body>
+</html>
