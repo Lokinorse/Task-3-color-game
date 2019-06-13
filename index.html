@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,35 +8,78 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <title>Task3</title>
 </head>
+
 <body>
     <style>
-        #app{
-            margin:2em;
+        #app {
+            margin: 2em;
         }
-        .cell{
-            width:40px;
-            height:40px;
 
-            border:1px solid orangered;
+        .cell {
+            width: 40px;
+            height: 40px;
+            border: 1px solid orangered;
         }
-        #boardWrapper{
+
+        #boardWrapper {
             flex-wrap: wrap;
-            display:flex;
-            width:160px;
+            display: flex;
+            width: 160px;
             margin-bottom: 1em;
         }
+
+        .red {
+            background-color: red;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+
+        .black {
+            background-color: black;
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .orange {
+            background-color: orange;
+        }
+
+        .violet {
+            background-color: violet;
+        }
+
+        .chocolate {
+            background-color: chocolate;
+        }
+        .white{
+            background-color:grey;
+        }
+
     </style>
     <div id="app">
-        <div id = 'boardWrapper'>
-            <div v-for='cell in board'>
-                <div class='cell'></div>
+        <div id='boardWrapper' v-on:click="turnIt">
+            <div v-for='(cell, index) in board'>
+                <!-- добавить функцию, которая добавит строку в хтмл ниже -->
+                <div class='cell' :class="[(cell.color === 'red' && !cell.head ? 'red' : ''),
+                (cell.color === 'blue' && !cell.head ? 'blue' : ''),
+                (cell.color === 'black' && !cell.head ? 'black' : ''),
+                (cell.color === 'green' && !cell.head ? 'green' : ''),
+                (cell.color === 'violet' && !cell.head ? 'violet' : ''),
+                (cell.color === 'chocolate' && !cell.head ? 'chocolate' : ''),
+                (cell.color === 'orange' && !cell.head ? 'orange' : ''),
+                (cell.color === 'white' && !cell.head ? 'white' : ''),
+                ]">{{index}}</div>
             </div>
         </div>
-        <button type="button" class="btn btn-primary"
-        v-on:click="stopWatch">Старт</button><br>
+        <button type="button" class="btn btn-primary"  v-on:click.once="stopWatch">Старт</button><br>
         <span>{{stopWatchData}}</span>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="index.js"></script>
 </body>
+
 </html>
